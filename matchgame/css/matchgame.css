@@ -4,13 +4,17 @@ body {
 }
 
 header h1 {
-    height: 50px;
+    height: 15px;
+    margin-top: 5px;
+    margin-bottom: 25px;
 }
 
 #timeTab {
     width: 300px;
     height: 50px;
     background: #232;
+    border-radius: 10px;
+    border: 5px solid #000;
     margin:0 auto 5px auto;
     display: -webkit-box;
     -webkit-box-pack: center;
@@ -20,11 +24,48 @@ header h1 {
 #contrlTab {
     width: 300px;
     height: 50px;
-    background: #232;
     margin:0 auto 5px auto;
     display: -webkit-box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
+}
+
+#contrlTab a {
+    text-decoration: none;
+    display: block;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #561515;
+    font-size: 2.0em;
+    font-weight:bold;
+    
+}
+
+#begin #reset {
+    width: 80%;
+}
+
+#begin {
+    padding-right: 100px;
+}
+
+#container {
+    position: relative;
+    margin: 0 auto;
+}
+
+#beginImg {
+    position: absolute;
+    top: 20%;
+    left:44%;
+    -webkit-transition: opacity 1s ease-in-out;
+    background: url(../images/number.png);
+    background-repeat: no-repeat;
+    width:170px;
+    height:300px;
+    margin: 0 auto;
+    background-position: 0 0;
+    z-index: 7;
+    display:none;
 }
 
 #game {
