@@ -13,6 +13,7 @@ $(function() {
     $(this).attr("data-pattern",pattern);
     $(this).click(selectCard);
  });
+ $("#go").click(beginImgShow);
 });
 
 var matchingGame = {};
@@ -57,3 +58,40 @@ function isMatchPattern(){
 function removeTookCards(){
     $(".card-removed").remove();
 }
+
+
+var time_;
+function beginImgShow() {
+    
+    $("#beginImg").css({
+         "background-position":"-330px 0"
+    });
+    $("#beginImg").removeClass("hide");
+    showSecond(-330,time_);
+    return false;
+}
+
+function showSecond(v){
+    setTimeout(function (){
+        $("#beginImg").addClass("transOpacity");
+        $("#beginImg").css({"opacity":0});
+        v=v+165;
+        setTimeout(function() {
+            if(v<=0){
+                $("#beginImg").css({
+                    "background-position": v+"px 0"
+                });
+                $("#beginImg").removeClass("transOpacity");
+                $("#beginImg").css({"opacity":1});
+                showSecond(v);
+            }else{
+                $("#beginImg").removeClass("transOpacity");
+                $("#beginImg").css({"opacity":1});
+                $("#beginImg").addClass("hide");
+                time_ = new Stopwatch("timeTab");
+                time_.start();
+            }
+        },1000);
+    },200);
+}
+

@@ -19,6 +19,10 @@ header h1 {
     display: -webkit-box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #000;
+    font-size: 2.0em;
+    font-weight:bold;
 }
   
 #contrlTab {
@@ -57,7 +61,6 @@ header h1 {
     position: absolute;
     top: 20%;
     left:44%;
-    -webkit-transition: opacity 1s ease-in-out;
     background: url(../images/number.png);
     background-repeat: no-repeat;
     width:170px;
@@ -65,7 +68,14 @@ header h1 {
     margin: 0 auto;
     background-position: 0 0;
     z-index: 7;
+}
+
+.hide {
     display:none;
+}
+
+.transOpacity{
+    -webkit-transition: opacity 1s ease-in-out;
 }
 
 #game {
