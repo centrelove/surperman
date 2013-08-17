@@ -14,6 +14,15 @@ $(function() {
     $(this).click(selectCard);
  });
  $("#go").click(beginImgShow);
+ $("#go").hover(function(){
+    console.log(audiogame.start_areyouready);
+    audiogame.start_areyouready.currentTime = 0;
+    audiogame.start_areyouready.play();
+ },function(){
+    audiogame.start_areyouready.pause();
+ });
+
+ 
 });
 
 var matchingGame = {};
@@ -90,6 +99,9 @@ function showSecond(v){
                 $("#beginImg").addClass("hide");
                 time_ = new Stopwatch("timeTab");
                 time_.start();
+                console.log(audiogame.bg_music_beforegame);
+                audiogame.bg_music_beforegame.pause();
+                audiogame.bg_music_ingame.play();
             }
         },1000);
     },200);
