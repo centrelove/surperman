@@ -33,19 +33,22 @@ matchingGame.deck= [
     'cardA12','cardA13',
     'cardB12','cardB13',
     'cardC12','cardC13',];
+matchingGame.isStart = false;
 
 function shuffle() {
     return 0.5- Math.random();
 }
 
 function selectCard() {
-    if($(".card-flipped").size() > 1) {
-        return;
+    if(matchingGame.isStart){
+        if($(".card-flipped").size() > 1) {
+            return;
+        }
+        $(this).addClass("card-flipped");
+        if($(".card-flipped").size() == 2){
+            setTimeout(checkPattern,700);
+        }
     }
-    $(this).addClass("card-flipped");
-    if($(".card-flipped").size() == 2){
-        setTimeout(checkPattern,700);
-    }    
 }
 
 function checkPattern(){
@@ -71,11 +74,15 @@ function removeTookCards(){
 
 var time_;
 function beginImgShow() {
-    
+    matchingGame.isStart = false;
+    audiogame.bg_music_ingame.pause();
+    audiogame.bg_music_beforegame.pause();
     $("#beginImg").css({
          "background-position":"-330px 0"
     });
     $("#beginImg").removeClass("hide");
+    audiogame.countdown321.currentTime = 0;
+    audiogame.countdown321.play();
     showSecond(-330,time_);
     return false;
 }
@@ -92,16 +99,20 @@ function showSecond(v){
                 });
                 $("#beginImg").removeClass("transOpacity");
                 $("#beginImg").css({"opacity":1});
+                audiogame.countdown321.currentTime = 0;
+                audiogame.countdown321.play();
                 showSecond(v);
             }else{
+                audiogame.countdown0.currentTime = 0;
+                audiogame.countdown0.play();
                 $("#beginImg").removeClass("transOpacity");
                 $("#beginImg").css({"opacity":1});
                 $("#beginImg").addClass("hide");
                 time_ = new Stopwatch("timeTab");
                 time_.start();
-                console.log(audiogame.bg_music_beforegame);
-                audiogame.bg_music_beforegame.pause();
+                console.log(audiogame.bg_music_beforegame);   
                 audiogame.bg_music_ingame.play();
+                matchingGame.isStart = true;
             }
         },1000);
     },200);
