@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>My Plane game</title>   
+    <link rel="stylesheet" href="../css/planegame.css" />  
+</head>
+
+<body>
+<header>
+   <h1>My Plane Game</h1>
+</header>
+
+<div class="contain" id="contain">
+	<div class="score">分数:<span id="score">0</span></div>
+	<div class="tips" id="tips">
+		<div class="title" id="tipTitle"></div>
+		<div class="msg" id="tipbody"></div>
+	</div>
+	<div class="tips" id="tips"></div>
+</div>
+
+<footer>
+   <p>游戏说明：1.按空格键开始，暂停，继续，重新开始 2.W-S-A-D控制上-下-左-右 J发射子弹</p>
+</footer>
+
+</body>
+</html>
+
+<script src="../../js/extjs3/ext-core.js" type="text/javascript"></script>
+<script src="../js/FP.js" type="text/javascript"></script>
+<script>
+Ext.onReady(function(){
+    FP.Mrg.init();
+});
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>just test</title>
+    <style>
+        #container {
+            background: #232 url(../images/table.jpg);
+            width:500px;
+            height:500px;
+            margin: 0 auto;
+        }
+        
+        #img {
+            -webkit-transition: opacity 1s ease-in-out;
+            -moz-transition: opacity 1s ease-in-out;
+            background: url(../images/number.png);
+            background-repeat: no-repeat;
+            width:170px;
+            height:300px;
+            margin: 0 auto;
+            background-position: -165px 0;
+            
+        }
+        
+        .img1 {
+            opacity: 0;
+        }
+        
+    </style>   
+</head>
+<body>
+    <div id="container">
+        <div id="img">
+        </div>
+    </div>
+    <audio id="start_areyouready">
+        <source src="../audio/start_areyouready.wav" />
+    </audio>
+    <input type="button" onclick="over()" value="消失"/>
+    
+</body>
+<script  type="text/javascript">
+        function over(){
+            document.getElementById("img").style.opacity= "0";
+            console.log(document.getElementById("start_areyouready"));
+            document.getElementById("start_areyouready").play();
+        }
+    </script>
+</html>
